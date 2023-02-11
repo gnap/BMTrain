@@ -10,12 +10,12 @@ def main():
     )
 
     model = GPT(
-        num_layers=32,
+        num_layers=40,
         vocab_size=50272, 
-        dim_model=4096,
+        dim_model=5140,
         dim_head=128,
-        num_heads=32,
-        dim_ff=4096*4,
+        num_heads=40,
+        dim_ff=5140*4,
         max_distance=2048,
         bias=True,
         dtype=torch.half
