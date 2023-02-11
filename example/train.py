@@ -32,8 +32,8 @@ def main():
     # generate dummy data for each rank
     torch.manual_seed(1234)
 
-    batch_size = 2
-    seq_len = 512
+    batch_size = 8
+    seq_len = 2048
 
     for i in range(bmt.world_size()):
         sent = torch.randint(0, 10240, (batch_size, seq_len + 1))
