@@ -11,7 +11,7 @@ def main():
 
     model = GPT(
         num_layers=24,
-        vocab_size=10240, 
+        vocab_size=50272, 
         dim_model=2048,
         dim_head=128,
         num_heads=24,
