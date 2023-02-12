@@ -108,7 +108,8 @@ def main():
         
         # print inspected tensors in the forward & backward pass
         # print parameters of the model
-        if iteration % 100 == 0:
+        if False:
+        #if iteration % 100 == 0:
             bmt.print_rank(
                 bmt.inspect.format_summary(
                     inspector.get_summary()
