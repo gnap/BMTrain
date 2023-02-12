@@ -89,22 +89,22 @@ def main():
         # load data
         st = time.time()
 
-        with bmt.inspect.inspect_tensor() as inspector:
-            pos = torch.arange(enc_input.size(1)).long().cuda().repeat(enc_input.size(0), 1)
-            logits = model(
-                enc_input,
-                pos,
-                pos < enc_length[:, None]
-            )
-            batch, seq_len, vocab_out_size = logits.size()
+        #with bmt.inspect.inspect_tensor() as inspector:
+        pos = torch.arange(enc_input.size(1)).long().cuda().repeat(enc_input.size(0), 1)
+        logits = model(
+            enc_input,
+            pos,
+            pos < enc_length[:, None]
+        )
+        batch, seq_len, vocab_out_size = logits.size()
 
-            loss = loss_func(logits.view(batch * seq_len, vocab_out_size), targets.view(batch * seq_len))
-        
-            global_loss = bmt.sum_loss(loss).item()
+        loss = loss_func(logits.view(batch * seq_len, vocab_out_size), targets.view(batch * seq_len))
+    
+        global_loss = bmt.sum_loss(loss).item()
 
-            optim_manager.zero_grad()
+        optim_manager.zero_grad()
 
-            optim_manager.backward(loss)
+        optim_manager.backward(loss)
         
         # print inspected tensors in the forward & backward pass
         # print parameters of the model
