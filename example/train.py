@@ -41,7 +41,7 @@ def main():
     }
 
     model = GPT(
-        **args['30b']
+        **args['66b']
     )
 
     bmt.init_parameters(model)
