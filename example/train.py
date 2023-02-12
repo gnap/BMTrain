@@ -29,10 +29,19 @@ def main():
         max_distance=2048,
         bias=True,
         dtype=torch.half),
+        '13b': dict(num_layers=40,
+        vocab_size=50272, 
+        dim_model=5120,
+        dim_head=128,
+        num_heads=40,
+        dim_ff=5120*4,
+        max_distance=2048,
+        bias=True,
+        dtype=torch.half),
     }
 
     model = GPT(
-        **args['30b']
+        **args['13b']
     )
 
     bmt.init_parameters(model)
