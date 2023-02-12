@@ -16,7 +16,7 @@ class GPT(bmt.DistributedModule):
         self.word_emb = Embedding(vocab_size, dim_model, dtype=dtype)
         self.pos_emb = Embedding(max_distance, dim_model, dtype=dtype)
         
-        self.transformers = bmt.TransformerBlockList([
+        self.transformers = bmt.PipelineTransformerBlockList([
             bmt.CheckpointBlock(
                 TransformerEncoder(
                     dim_model, dim_head, num_heads, dim_ff, bias, dtype
