@@ -7,7 +7,7 @@ def main():
     bmt.init_distributed(
         seed=0,
         zero_level=3,
-        pipe_size=2,
+        pipe_size=4,
     )
 
     args = {
@@ -41,7 +41,7 @@ def main():
     }
 
     model = GPT(
-        **args['13b']
+        **args['30b']
     )
 
     bmt.init_parameters(model)
