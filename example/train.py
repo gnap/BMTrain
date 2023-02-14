@@ -7,7 +7,7 @@ def main():
     bmt.init_distributed(
         seed=0,
         zero_level=3,
-        pipe_size=2,
+        pipe_size=1,
     )
 
     args = {
@@ -38,10 +38,19 @@ def main():
         max_distance=2048,
         bias=True,
         dtype=torch.half),
+        '1.3b': dict(num_layers=24,
+        vocab_size=50272, 
+        dim_model=2048,
+        dim_head=128,
+        num_heads=32,
+        dim_ff=2048*4,
+        max_distance=2048,
+        bias=True,
+        dtype=torch.half),
     }
 
     model = GPT(
-        **args['66b']
+        **args['1.3b']
     )
 
     bmt.init_parameters(model)
